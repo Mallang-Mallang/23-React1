@@ -27,15 +27,42 @@
 
 ---
 
-## 2023.03.16(목) 2주차
+## 2023.03.23(목) 3주차
 
 ### 학습 내용
 
-<ul>
-	<li>
-		asd
-	</li>
-</ul>
+1. README.md 백업
+2. local에 있는 저장소 이름 바꾸기/삭제
+3. 새 프로젝트 생성(23-React1)
+4. README.md 덮어쓰기
+5. Github 저장소 삭제
+6. 로컬에서 23-React1 push
+7. Github 저장소 확인
+
+<li>JSX란 JavaScript에 XML을 추가한 확장 문법</li>
+<li>React는 Babel을 통해 해석된다.</li>
+<li>JSX 실습 예제 작성 해보기</li>
+
+<br>
+
+### JSX 사용법
+
+<li>모든 자바스크립트 문법을 지원</li>
+<li>자바스크립트 문법에 XML과 HTML을 섞어서 사용</li>
+<li>HTML이나 XML에 자바스크립트 코드를 사용하고 싶으면 중괄호{}를 사용한다.</li>
+<br>
+
+<br>
+
+<details>
+<summary>
+JSX 장점
+</summary>
+
+<li>코드가 간결해진다.</li>
+<li>가독성이 향상된다</li>
+<li>Injection Attack이라 불리는 해킹 방법을 방어함으로써 보안에 강하다.</li>
+</details>
 
 ---
 
