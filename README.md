@@ -27,6 +27,83 @@
 
 ---
 
+## 2023.04.06(목) 5주차
+
+### 학습 내용
+
+### 컴포넌트 추출
+
+- 복잡한 컴포넌트를 쪼개서 여러 개의 컴포넌트로 나눌 수 있음
+- 큰 컴포넌트에서 일부를 추출해서 새로운 컴포넌트를 만드는 것
+- 실무에서는 처음부터 1개의 컴포넌트에 하나의 기능만 사용하도록 설계하는것이 좋음
+
+<br>
+
+### 컴포넌트 예제 실습
+
+**Comment.jsx**
+
+```jsx
+function Comment(props) {
+  return (
+    <div style={styles.wrapper}>
+      <div style={styles.imageContainer}>
+        <img
+          src='https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png'
+          style={styles.image}
+        />
+      </div>
+
+      <div style={styles.contentContainer}>
+        <span style={styles.nameText}>{props.name}</span>
+        <span style={styles.commentText}>{props.comment}</span>
+      </div>
+    </div>
+  );
+}
+```
+
+**CommentList.jsx**
+
+```jsx
+function CommentList() {
+  return (
+    <div>
+      {comments.map(function (v) {
+        return <Comment name={v.name} comment={v.comment} />;
+      })}
+    </div>
+  );
+}
+```
+
+<br>
+
+### state란?
+
+- State는 리액트 컴포넌트의 상태를 의미
+- 상태의 의미는 정상인지 비정상인지가 아니라 컴포넌트의 데이터를 의미
+- 정확히는 컴포넌트의 **변경가능한 데이터**를 의미
+- State가 변하면 재 렌더링이 되기 떄문에 렌더링과 관련된 값만 state에 포함시켜야함
+- 리액트만의 특별한 형태가 아닌 자바스크립트 객체이다.
+- State는 변경은 가능하나, 직접 수정하면 안된다.
+- State를 변경하고 싶다면 `setState()`함수를 사용해야한다.
+
+<br>
+
+### 생명주기에 대해 알아보기
+
+- 생명주기는 컴포넌트의 생성 시점, 사용 시점, 종료 시점을 나타내는 것이다.
+- `constructor`가 실행되면서 컴포넌트가 생성된다.
+- 생성 직후 `componentDidMount()` 함수가 호출된다.
+- 컴포넌트가 소멸하기 전까지 여러 번 렌더링된다.
+- 렌더링은 `props`, `setState()`, `forceUpdate()`에 의해 상태가 변경되면 이루어진다.
+- 렌더링이 끝나면 `componentDidMount()` 함수가 호출된다.
+- 마지막으로 컴포넌트가 언마운트 되면 `componentWillUnMount()` 함수가 호출된다.
+- 실습 예제를 통해 실습하였음.
+
+---
+
 ## 2023.03.30(목) 4주차
 
 ### 학습 내용
