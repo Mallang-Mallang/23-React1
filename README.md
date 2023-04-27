@@ -27,6 +27,136 @@
 
 ---
 
+## 2023.04.27(목) 8주차
+
+### 학습 내용
+
+<br>
+
+### 컴포넌트 렌더링 막기
+
+- 컴포넌트를 렌더링하고 싶지 않을 때에는 `null`을 리턴한다.
+
+```jsx
+function WarningBanner(props) {
+  if (!props.warning) {
+    return null;
+  }
+
+  return <div>경고!</div>;
+}
+```
+
+### 인라인 조건
+
+- 필요한 곳에 조건문을 직접 넣어 사용하는 방법
+
+1. 인라인 if
+
+- if문을 직접 사용하지 않고, 동일한 효과를 내기 위해 `&&`논리 연산자를 사용한다.
+- `&&`는 `and`연산자로 모든 조건이 참일때만 참이 된다.
+- 첫 번째 조건이 거짓이면 두 번째 조건은 판단할 필요가 없다.
+
+```js
+true && expression; // expression
+false && expression; // false
+```
+
+2. 인라인 if else
+
+- 삼항 연산자를 사용한다. `조건문 ? 참일 경우 : 거짓일 경우`
+- 문자열이나 엘리먼트를 넣어서 사용할 수 있다.
+
+### 엘리먼트 변수
+
+- 렌더링해야 될 컴포넌트를 변수처럼 사용하는 방법
+- `state`에 따라 `button` 변수에 컴포넌트의 객체를 저장하여 `return`문에서 사용했다
+
+```jsx
+    let button;
+    if (isLoggedIn) {
+      button = <LogoutButton onClick={handleLogoutClick} />
+    }else {
+      button = <LoginButton onClick={handleLoginClick} />
+    }
+
+    return (
+      <div>
+        <Greeting isLoggedIn={isLoggedIn} />
+      </div>
+    )
+  }
+}
+```
+
+### 조건부 렌더링이란?
+
+```jsx
+function Greeting(props) {
+  const isLoggedIn = props.isLoggedIn;
+  if (isLoggedIn) {
+    return <UserGreeting />;
+  }
+  return <GuestGreeting />;
+}
+```
+
+- props로 전달 받은 `isLoggedIn`이 `true`면 `<UserGreeting />`을, `flase`면 `<GuestGreeting />`을 `return`한다.
+- 이와 같은 렌더링을 조건부 렌더링이라고 한다.
+
+### Arguments 전달하기
+
+- 함수를 정의할 때는 **파라미터(Parameter)** 혹은 **매개변수**,
+- 함수를 사용할 때는 **아규먼트(Argument)** 혹은 **인자** 라고 부른다.
+- 이벤트 핸들러에 매개변수를 전달해야 하는 경우도 많다.
+
+```jsx
+<button onClick={(event) => this.deleteItem(id, event)}>삭제하기</button>
+
+<button onClick={this.deleteItem.bind(this, id)}>삭제하기</button>
+```
+
+- 위 코드는 모두 동일한 역할을 하지만 하나는 화살표 함수, 다른 하나는 bind를 사용했다.
+- event라는 매개변수는 리액트 이벤트의 객체를 의미한다.
+
+### 이벤트 처리하기
+
+- DOM에서 클릭 이벤트를 처리하는 방법
+
+```html
+<button onclick="activate()">Activate</button>
+```
+
+- React에서 클릭 이벤트를 처리하는 방법
+
+```jsx
+<button onClick={activate}>Activate</button>
+```
+
+- 차이점
+  1. 이벤트 이름이 onclick에서 onClick으로 변경(camelCase)
+  2. 전달하려는 함수는 문자열에서 함수 그대로 전달
+- 이벤트가 발생했을 때 해당 이벤트를 처리하는 함수를 "이벤트 핸들러"라고 한다. 또는 이벤트가 발생하는 것을 계속 듣고 있다는 의미로 "이벤트 리스너"라고도 한다.
+
+```jsx
+const useCounter = (initialValue) => {
+  const [isToggle, setIsToggle] = useState(true);
+
+  // 방법 1. 함수 안에 함수로 정의
+  function handleClick() {
+    setIsToggle(() => !isToggle);
+  }
+  // 방법 2. arrow function을 사용하여 정의
+  const handleClick = () => {
+    setIsToggle(() => !isToggle);
+  };
+
+  return <button onClick={handleClick}>{isToggle ? '켜짐' : '꺼짐'}</button>;
+};
+```
+
+---
+
 ## 2023.04.13(목) 6주차
 
 ### 학습 내용
