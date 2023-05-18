@@ -103,6 +103,20 @@ const reactElement = React.createElement(
 - Provider는 value라는 prop이 있고, 이것은 Provider 컴포넌트 하위에 있는 컴포넌트에게 전달된다.
 - 하위 컴포넌트를 counsumer 컴포넌트라고 부른다.
 
+### `Class.contextType`
+
+- provider 하위에 있는 클래스 컴포넌트에서 컨텍스트의 데이터에 접근하기 위해 사용
+
+### `Context.Consumer`
+
+- 함수형 컴포넌트에서 `Context.Consumer`를 사용하여 컨텍스트를 구독할 수 있다.
+- 컴포넌트의 자식으로 함수가 올 수 있는데 이걸을 function as a child라고 부른다.
+
+### `Context.displayName`
+
+- 컨텍스트 객체는 displayName 이라는 문자 속성을 갖는다.
+- 크롬의 리액트 개발자 도구에서 컨텍스트의 Provider나 Consumer를 표시할 때 displayName을 함께 표시 해준다.
+
 ---
 
 ## 2023.05.11(목) 10주차
