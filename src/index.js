@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Calculator from './chapter_12/Calculator';
+import DatkOrLight from './chapter_14/DatkOrLight';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Calculator />
+    <DatkOrLight />
   </React.StrictMode>
 );
 
