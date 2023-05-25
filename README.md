@@ -27,6 +27,122 @@
 
 ---
 
+## 2023.05.25(목) 12주차
+
+### 학습 내용
+
+### chapter14 실습
+
+**ThemeContext.jsx**
+
+```jsx
+import React from 'react';
+
+const ThemeContext = React.createContext();
+ThemeContext.displayName = 'ThemeContext';
+
+export default ThemeContext;
+```
+
+**MainContent**
+
+```jsx
+import React, { useContext } from 'react';
+import ThemeContext from './ThemeContext';
+
+function MainContent() {
+  const { theme, toggleTheme } = useContext(ThemeContext);
+
+  return (
+    <div
+      style={{
+        width: '100vw',
+        height: '100vh',
+        padding: '1.5rem',
+        backgroundColor: theme === 'light' ? 'white' : 'black',
+        color: theme === 'light' ? 'black' : 'white',
+      }}
+    >
+      <p>안녕하세요, 테마 변경이 가능한 웹사이트 입니다.</p>
+      <button onClick={toggleTheme}>테마 변경</button>
+    </div>
+  );
+}
+
+export default MainContent;
+```
+
+**DatkOrLight**
+
+```jsx
+import React, { useCallback, useState } from 'react';
+import MainContent from './MainContent';
+import ThemeContext from './ThemeContext';
+
+function DatkOrLight(props) {
+  const [theme, setTheme] = useState('light');
+
+  const toggleTheme = useCallback(() => {
+    if (theme === 'light') {
+      setTheme('dark');
+    } else if (theme === 'dark') {
+      setTheme('light');
+    }
+  }, [theme]);
+  return (
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      <MainContent />
+    </ThemeContext.Provider>
+  );
+}
+
+export default DatkOrLight;
+```
+
+### CSS
+
+- ID 선택자 (#)
+  ```css
+  #id {
+    font-size: 20px;
+    color: blue;
+  }
+  ```
+- CSS 선택자 (.)
+  ```css
+  .class {
+    font-size: 20px;
+    color: blue;
+  }
+  ```
+- 태그 선택자 (a.tag)
+
+  ```css
+  p.midium {
+    font-size: 20px;
+    color: blue;
+  }
+  ```
+
+- 전체 선택자 (\*)
+
+  ```css
+  * {
+    font-size: 20px;
+    color: blue;
+  }
+  ```
+
+- `:hove` - 마우스 커서가 엘리먼트 위에 올라왔을 때를 의미한다
+- `:avtive` - 주로 `<a>` 태그(link)에 사용되는데 엘리먼트가 클릭됐을 때를 의미한다.
+- `:focus` - 주로 `<input>` 태그에서 사용, 엘리먼트에 초점을 갖고 있을 때
+- `:checked` - `radio button`이나 `checkbox` 같은 유형의 `<input>` 태그가 체크됐을 때
+- `:first-child`, `:last-child` - 상위 엘리먼트를 기준으로 각각 첫번째 child, 마지막 child일 경우를 의미
+
+<br>
+
+---
+
 ## 2023.05.18(목) 11주차
 
 ### 학습 내용
